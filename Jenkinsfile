@@ -17,7 +17,7 @@ pipeline {
         }
         stage("Login to DockerHub") {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'ncxDocker', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
+                withCredentials([usernamePassword(credentialsId: 'ncxDocker', passwordVariable: 'passDockerHub', usernameVariable: 'userDockerHub')]) {
                     sh "echo Connecting to Jaadu's spaceship"
                     sh "echo $PASS | docker login -u $USER --password-stdin"
                 }
@@ -25,7 +25,7 @@ pipeline {
         }
         stage("Push Image") {
             steps {
-                sh "Missed call received from Jaadu..."
+                sh "echo Missed call received from Jaadu..."
                 sh "docker push nightcodex/nodejs-app:${BUILD_NUMBER}"
             }
         }
