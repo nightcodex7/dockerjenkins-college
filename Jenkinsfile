@@ -12,7 +12,7 @@ pipeline {
         stage("Run Container") {
             steps {
                 sh "echo Running the container"
-                sh "docker run -d --name nodeapp -p 7393:5040 nightcodex/nodejs-app:${BUILD_NUMBER}"
+                sh "docker run -d --name nodeapp_new -p 7393:5040 nightcodex/nodejs-app:${BUILD_NUMBER}"
             }
         }
         stage("Login to DockerHub") {
